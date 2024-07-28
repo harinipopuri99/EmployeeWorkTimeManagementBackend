@@ -34,4 +34,6 @@ public class RegionService {
 		return regionRepository.findAll();
 	}
 
+	
+
 }

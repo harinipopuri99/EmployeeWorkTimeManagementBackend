@@ -1,5 +1,8 @@
 package com.microservice.account.model;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,19 +11,19 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Task {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id; 
+	private int id;
 	
-	private String name;
+	@Column(length = 1000)
+	private String taskDetails; 
 	
-	private String description;
+	private LocalDate startDate; 
 	
-	private String status;
+	private LocalDate endDate; 
 	
-	@ManyToOne
-	private Project project;
+	private boolean isArchived = false; 
 	
 	@ManyToOne
 	private Employee employee;
@@ -33,36 +36,28 @@ public class Task {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getTaskDetails() {
+		return taskDetails;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTaskDetails(String taskDetails) {
+		this.taskDetails = taskDetails;
 	}
 
-	public String getDescription() {
-		return description;
+	public LocalDate getStartDate() {
+		return startDate;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
 	}
 
-	public String getStatus() {
-		return status;
+	public LocalDate getEndDate() {
+		return endDate;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Project getProject() {
-		return project;
-	}
-
-	public void setProject(Project project) {
-		this.project = project;
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
 
 	public Employee getEmployee() {
@@ -73,4 +68,13 @@ public class Task {
 		this.employee = employee;
 	}
 
+	public boolean isArchived() {
+		return isArchived;
+	}
+
+	public void setArchived(boolean isArchived) {
+		this.isArchived = isArchived;
+	}
+	
+	
 }

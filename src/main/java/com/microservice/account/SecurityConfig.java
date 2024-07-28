@@ -29,9 +29,10 @@ public class SecurityConfig {
 		http.csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(authorize -> authorize
 						.antMatchers(HttpMethod.GET, "/api/cap/login").authenticated()
-						.antMatchers(HttpMethod.POST, "/api/cap/country/add").authenticated()
-						.antMatchers(HttpMethod.POST,"/api/cap/region/add/{countryId}").permitAll()
-		            	.antMatchers(HttpMethod.GET,"/api/cap/region/all").permitAll()
+						.antMatchers(HttpMethod.POST, "/api/cap/country/add").permitAll()
+						.antMatchers(HttpMethod.GET, "/api/cap/country/all").hasAuthority("MANAGER")
+						.antMatchers(HttpMethod.POST,"/api/cap/region/add").permitAll()
+		            	.antMatchers(HttpMethod.GET,"/api/cap/region/all").hasAuthority("MANAGER")
 						.antMatchers(HttpMethod.GET, "/api/cap/employee/getall").hasAnyAuthority("HR","MANAGER")
 						.antMatchers(HttpMethod.POST, "/api/cap/hr/add").permitAll()
 						.antMatchers(HttpMethod.POST, "/api/cap/manager/add").hasAuthority("HR")
@@ -43,7 +44,13 @@ public class SecurityConfig {
 		            	.antMatchers(HttpMethod.GET,"/api/cap/search/employee/manager/{searchStr}").permitAll()
 		            	.antMatchers(HttpMethod.GET,"/api/cap/manager/employee").hasAuthority("MANAGER")
 		            	.antMatchers(HttpMethod.POST,"/api/cap/task/employee/{eid}").hasAuthority("MANAGER")
-						.anyRequest().permitAll())
+		            	.antMatchers(HttpMethod.GET,"/api/cap/task/{eid}").hasAnyAuthority("MANAGER","EMPLOYEE")
+		            	.antMatchers(HttpMethod.GET,"/api/cap/task/archive/{tid}").hasAuthority("MANAGER")
+		            	.antMatchers(HttpMethod.POST,"/api/cap/project/add/{regionId}").hasAuthority("MANAGER")
+		            	.antMatchers(HttpMethod.POST,"/api/cap/employee/project/assign/{employeeId}/{projectId}").hasAuthority("MANAGER")
+		            	.antMatchers(HttpMethod.GET,"/api/cap/employee/projects").hasAnyAuthority("EMPLOYEE", "MANAGER", "HR")
+		            	.antMatchers(HttpMethod.GET,"/api/cap/employee").hasAnyAuthority("EMPLOYEE", "MANAGER", "HR")
+		            	.anyRequest().permitAll())
 				.httpBasic(Customizer.withDefaults());
 		return http.build(); /* */
 	}

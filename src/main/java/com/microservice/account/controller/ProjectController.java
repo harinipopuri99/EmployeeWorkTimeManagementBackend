@@ -2,6 +2,7 @@ package com.microservice.account.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import com.microservice.account.service.ProjectService;
 import com.microservice.account.service.RegionService;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class ProjectController {
 
 	@Autowired

@@ -35,6 +35,9 @@ public class Employee {
 	@ManyToOne
 	private Manager manager; 
 	
+	@ManyToOne
+	private Project project;
+	
 	@Column(columnDefinition = "LONGTEXT")
 	private String dailyLog;
 	
@@ -43,9 +46,15 @@ public class Employee {
 	
 	@Column(columnDefinition = "MEDIUMTEXT")
 	private String notifications;
-	
-	/*@OneToMany(mappedBy = "employee")
-	private List<Task> tasks;*/
+
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
 
 	public int getId() {
 		return id;

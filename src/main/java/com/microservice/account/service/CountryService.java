@@ -1,5 +1,6 @@
 package com.microservice.account.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class CountryService {
 	public Country getCountryById(int countryId) {
 		Optional<Country> optional = countryRepository.findById(countryId);
 		return optional.get();
+	}
+
+	public List<Country> getAllCountries() {
+		// TODO Auto-generated method stub
+		return countryRepository.findAll();
 	}
 
 }

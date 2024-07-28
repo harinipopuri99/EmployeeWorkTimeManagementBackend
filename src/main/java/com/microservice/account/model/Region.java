@@ -16,9 +16,6 @@ public class Region {
 	private String regionName;
 	
 	private String pincode;
-	
-	@ManyToOne
-	private Country country;
 
 	
 	public int getId() {
@@ -44,14 +41,5 @@ public class Region {
 	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
-
-	public Country getCountry() {
-		return country;
-	}
-
-	public void setCountry(Country country) {
-		this.country = country;
-	}
-
 
 }

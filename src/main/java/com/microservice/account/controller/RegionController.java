@@ -25,14 +25,13 @@ public class RegionController {
 	@Autowired
 	private CountryService countryService;
 	
-	@PostMapping("/api/cap/region/add/{countryId}")
-	public Region postRegion(@PathVariable("countryId") int countryId,
-							@RequestBody Region region) {
+	@PostMapping("/api/cap/region/add")
+	public Region postRegion(@RequestBody Region region) {
 		/* fetch countryObj based on countryId given */
-		Country countryObj = countryService.getCountryById(countryId);
+		//Country countryObj = countryService.getCountryById(countryId);
 		
 		/* Set this countryObj to region */
-		region.setCountry(countryObj);
+		//region.setCountry(countryObj);
 		
 		/* save region to DB */
 		return regionService.saveRegion(region);
@@ -42,6 +41,7 @@ public class RegionController {
 	public List<Region> getAllRegions() {
 		return regionService.getAllRegions();
 	}
+	
 }
 
 /* */
