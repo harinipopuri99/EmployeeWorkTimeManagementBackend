@@ -4,10 +4,14 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.microservice.account.enums.Priority;
 
 @Entity
 public class Task {
@@ -16,8 +20,13 @@ public class Task {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	private String name;
+	
 	@Column(length = 1000)
 	private String taskDetails; 
+	
+	@Enumerated(EnumType.STRING)
+	private Priority priority;
 	
 	private LocalDate startDate; 
 	
@@ -25,8 +34,47 @@ public class Task {
 	
 	private boolean isArchived = false; 
 	
+	private boolean isAssigned = false;
+	
 	@ManyToOne
 	private Employee employee;
+	
+	@ManyToOne
+	private Project project;
+	
+	
+
+	public Priority getPriority() {
+		return priority;
+	}
+
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+
+	public boolean isAssigned() {
+		return isAssigned;
+	}
+
+	public void setAssigned(boolean isAssigned) {
+		this.isAssigned = isAssigned;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
 
 	public int getId() {
 		return id;

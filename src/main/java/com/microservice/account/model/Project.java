@@ -17,7 +17,7 @@ public class Project {
     
     @ManyToOne
 	private Region region;
-      
+
 
 	public Region getRegion() {
 		return region;

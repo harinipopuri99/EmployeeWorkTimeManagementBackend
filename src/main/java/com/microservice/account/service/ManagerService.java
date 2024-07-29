@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.microservice.account.exception.ResourceNotFoundException;
 import com.microservice.account.model.Employee;
 import com.microservice.account.model.Manager;
+import com.microservice.account.model.Notification;
 import com.microservice.account.repository.ManagerRepository;
 
 @Service
@@ -20,6 +21,7 @@ public class ManagerService {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
 
 	public Manager insertManager(Manager manager) {
 		
@@ -49,6 +51,11 @@ public class ManagerService {
 	
 	public List<Employee> getEmployeeByManager(String username) {
 		return managerRepository.getEmployeeByManagerJpql(username);
+	}
+
+	public void sendNotification(int eid, Notification notification) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

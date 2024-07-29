@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import com.microservice.account.enums.JobTitle;
 import com.microservice.account.enums.RoleType;
 import com.microservice.account.model.Employee;
 import com.microservice.account.model.Manager;
+import com.microservice.account.model.Notification;
 import com.microservice.account.model.UserInfo;
 import com.microservice.account.service.ManagerService;
 import com.microservice.account.service.UserInfoService;
@@ -57,4 +59,7 @@ public class ManagerController {
 		List<Employee> list = managerService.getEmployeeByManager(username);
 		return list; 
 	}
+	
+	
+	
 }

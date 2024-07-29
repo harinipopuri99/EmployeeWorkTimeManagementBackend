@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservice.account.model.Project;
 import com.microservice.account.model.Task;
 import com.microservice.account.service.TaskService;
 
@@ -20,9 +21,25 @@ public class TaskController {
 
 	@Autowired
 	private TaskService taskService;
-	@PostMapping("/api/cap/task/employee/{eid}")
-	public void assignTask(@PathVariable("eid") int eid, @RequestBody Task task) {
-		taskService.assignTask(eid,task);
+	
+	@PostMapping("/api/cap/task/employee/{eid}/{tid}")
+	public void assignTask(@PathVariable("eid") int eid, @PathVariable("tid") int tid) {
+		taskService.assignTask(eid, tid);
+	}
+	
+	@PostMapping("/api/cap/task/project/{pid}")
+	public void createTask(@PathVariable("pid") int pid, @RequestBody Task task) {
+		taskService.createTask(pid, task);
+	}
+	
+	@GetMapping("/api/cap/tasks/all")
+	public List<Task> getAllTasks() {
+		return taskService.getAllTasks();
+	}
+	
+	@GetMapping("/api/cap/task/project/{pid}")
+	public List<Task> getAllTasksByProject(@PathVariable("pid") int pid) {
+		return taskService.getAllTasksByProject(pid);
 	}
 	
 	@GetMapping("/api/cap/task/{eid}")
@@ -36,6 +53,12 @@ public class TaskController {
 	@GetMapping("/api/cap/task/archive/{tid}")
 	public void updateTaskForArchival(@PathVariable("tid") int tid) {
 		taskService.updateTaskForArchival(tid);
+	}
+	
+	@GetMapping("/api/cap/priority/all")
+	public List<String> getAllPriorities() {
+		List<String> list = taskService.getAllPriorities();
+		return list; 
 	}
 
 }
