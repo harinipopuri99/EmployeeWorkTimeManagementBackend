@@ -26,12 +26,12 @@ public class TaskService {
 	@Autowired
 	private ProjectRepository projectRepository;
 
-	public void assignTask(int eid, int tid) {
+	public Task assignTask(int eid, int tid) {
 		Employee employee = employeeRepository.findById(eid).get();
 		Task task = taskRepository.findById(tid).get();
 		
 		task.setEmployee(employee);
-		taskRepository.save(task);
+		return taskRepository.save(task);
 	}
 	
 	public List<Task> getAllTask(int eid) {
@@ -67,6 +67,19 @@ public class TaskService {
 			listStr.add(pr.toString());
 		});
 		return listStr;
+	}
+
+	public List<Task> getTasksByEmployeeUsername(String username) {
+		
+		return taskRepository.findTasksByEmployeeUsername(username);
+	}
+	
+	public Task addTask(Task task) {
+		return taskRepository.save(task);
+	}
+
+	public Task getTask(int taskId) {
+		return taskRepository.findById(taskId).get();
 	}
 
 }

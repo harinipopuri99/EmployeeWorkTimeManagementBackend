@@ -23,13 +23,16 @@ import com.microservice.account.dto.ResponseDto;
 import com.microservice.account.dto.TaskDto;
 import com.microservice.account.dto.WorkLogDto;
 import com.microservice.account.enums.RoleType;
+import com.microservice.account.enums.Status;
 import com.microservice.account.exception.ResourceNotFoundException;
 import com.microservice.account.model.Employee;
 import com.microservice.account.model.Manager;
 import com.microservice.account.model.Project;
+import com.microservice.account.model.Task;
 import com.microservice.account.model.UserInfo;
 import com.microservice.account.service.EmployeeService;
 import com.microservice.account.service.ManagerService;
+import com.microservice.account.service.TaskService;
 import com.microservice.account.service.UserInfoService;
 
 @RestController
@@ -44,6 +47,9 @@ public class EmployeeController {
 	
 	@Autowired
 	private ManagerService managerService;
+	
+	@Autowired
+	private TaskService taskService;
 	
 	@PostMapping("/api/cap/employee/add/{managerId}") //authenticate
 	public ResponseEntity<?> postEmployee(@PathVariable("managerId") int managerId, @RequestBody Employee employee) {
@@ -128,6 +134,29 @@ public class EmployeeController {
         return employeeService.getEmployeeByUsername(username);
     }
 	
+	/*@GetMapping("/api/cap/update/{taskId}/{status}")
+	public Task updateTaskStatus( @PathVariable("taskId") int taskId  ,
+								  @PathVariable("status") Status status) {
+		Task task = taskService.getTask(taskId);
+		leave.setStatus(status);
+		return leaveService.postLeave(leave);}*/
+	
+	
+
+	@GetMapping("/api/cap/status/all")
+	public List<String> getAllStatuses() {
+		List<String> list = employeeService.getAllStatuses();
+		return list; 
+	}
+	
+	@PostMapping("/api/cap/status/{taskId}/{status}")
+	public Task updateStatus(
+								  @PathVariable("taskId") int taskId  ,
+								  @PathVariable("status") Status status) {
+		Task task = taskService.getTask(taskId);
+		task.setStatus(status);
+		return taskService.addTask(task);
+	}
 
 	
 	

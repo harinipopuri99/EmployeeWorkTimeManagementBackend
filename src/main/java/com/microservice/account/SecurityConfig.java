@@ -55,10 +55,14 @@ public class SecurityConfig {
 		            	.antMatchers(HttpMethod.GET,"/api/cap/task/project/{pid}").hasAnyAuthority("EMPLOYEE", "MANAGER")
 		            	.antMatchers(HttpMethod.GET,"/api/cap/tasks/all").hasAuthority("MANAGER")
 		            	.antMatchers(HttpMethod.GET,"/api/cap/priority/all").hasAuthority("MANAGER")
-		            	.antMatchers(HttpMethod.POST,"/api/cap/task/employee/{eid}/{tid}").hasAuthority("MANAGER")
+		            	.antMatchers(HttpMethod.POST,"/api/cap/task/employee/{eid}/{tid}/{priority}").hasAuthority("MANAGER")
 		            	.antMatchers(HttpMethod.POST,"/api/cap/notification/{eid}").hasAuthority("MANAGER")
-		            	.antMatchers(HttpMethod.GET,"/api/cap/notification/employee/{eid}").hasAuthority("EMPLOYEE")
+		            	.antMatchers(HttpMethod.GET,"/api/cap/notification/employee/all").hasAuthority("EMPLOYEE")
 		            	.antMatchers(HttpMethod.GET,"/api/cap/project/tasks/all").hasAnyAuthority("EMPLOYEE", "MANAGER")
+		            	.antMatchers(HttpMethod.GET, "/api/cap/notification/archive/{nid}").hasAuthority("EMPLOYEE")
+		            	.antMatchers(HttpMethod.GET, "/api/cap/task/employee/all").hasAnyAuthority("EMPLOYEE", "MANAGER")
+		            	.antMatchers(HttpMethod.GET, "/api/cap/status/all").hasAnyAuthority("MANAGER", "EMPLOYEE")
+		            	.antMatchers(HttpMethod.POST, "/api/cap/status/{taskId}/{status}").hasAuthority("EMPLOYEE")
 		            	.anyRequest().permitAll())
 				.httpBasic(Customizer.withDefaults());
 		return http.build(); /* */

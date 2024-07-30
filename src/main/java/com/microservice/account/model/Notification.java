@@ -19,12 +19,24 @@ public class Notification {
 	@Column(length = 1000)
 	private String message;
 	
+	private boolean isArchived = false; 
+	
 	@ManyToOne
 	private Employee employee;
 	
 	@ManyToOne
 	private Manager manager;
 	
+	
+	
+
+	public boolean isArchived() {
+		return isArchived;
+	}
+
+	public void setArchived(boolean isArchived) {
+		this.isArchived = isArchived;
+	}
 
 	public Employee getEmployee() {
 		return employee;

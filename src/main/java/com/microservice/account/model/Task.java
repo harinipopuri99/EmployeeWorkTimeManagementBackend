@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.microservice.account.enums.Priority;
+import com.microservice.account.enums.Status;
 
 @Entity
 public class Task {
@@ -36,6 +37,9 @@ public class Task {
 	
 	private boolean isAssigned = false;
 	
+	@Enumerated(EnumType.STRING)
+	private Status status;
+	
 	@ManyToOne
 	private Employee employee;
 	
@@ -43,6 +47,14 @@ public class Task {
 	private Project project;
 	
 	
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	public Priority getPriority() {
 		return priority;
@@ -123,6 +135,8 @@ public class Task {
 	public void setArchived(boolean isArchived) {
 		this.isArchived = isArchived;
 	}
+
+	
 	
 	
 }

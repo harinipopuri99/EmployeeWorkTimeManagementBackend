@@ -1,6 +1,8 @@
 package com.microservice.account.enums;
 
-public enum Priority {
 
-	LOW, MEDIUM, HIGH;
+public enum Priority {
+    HIGH,
+    MEDIUM,
+    LOW;
 }

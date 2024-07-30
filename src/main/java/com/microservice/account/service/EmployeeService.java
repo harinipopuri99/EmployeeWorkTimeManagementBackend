@@ -14,6 +14,7 @@ import com.microservice.account.dto.ProjectDto;
 import com.microservice.account.dto.TaskDto;
 import com.microservice.account.dto.WorkLogDto;
 import com.microservice.account.enums.JobTitle;
+import com.microservice.account.enums.Status;
 import com.microservice.account.exception.ResourceNotFoundException;
 import com.microservice.account.model.Employee;
 import com.microservice.account.model.Project;
@@ -89,6 +90,17 @@ public class EmployeeService {
 	public Employee getEmployeeByUsername(String username) {
 		return employeeRepository.getEmployeeByUsername(username);
 	}
+
+	public List<String> getAllStatuses() {
+		Status[] status = Status.values();
+		List<Status> list = Arrays.asList(status);
+		List<String> listStr = new ArrayList<>();
+		list.stream().forEach(st->{
+			listStr.add(st.toString());
+		});
+		return listStr;
+	}
+	
 
 	/*public List<Project> getProjectsByEmployee(String username) {
 		// TODO Auto-generated method stub

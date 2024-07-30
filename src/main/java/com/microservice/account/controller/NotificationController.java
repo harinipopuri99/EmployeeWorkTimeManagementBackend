@@ -1,6 +1,8 @@
 package com.microservice.account.controller;
 
+import java.security.Principal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import com.microservice.account.dto.ResponseDto;
 import com.microservice.account.exception.ResourceNotFoundException;
 import com.microservice.account.model.Employee;
 import com.microservice.account.model.Notification;
+import com.microservice.account.model.Project;
 import com.microservice.account.model.Task;
 import com.microservice.account.service.EmployeeService;
 import com.microservice.account.service.NotificationService;
@@ -50,5 +53,19 @@ public class NotificationController {
 	@GetMapping("/api/cap/notification/employee/{eid}")
 	public List<Notification> getAllNotificationsByEmployee(@PathVariable("eid") int eid) {
 		return notificationService.getAllNotificationsByEmployee(eid);
+	}
+	
+	@GetMapping("/api/cap/notification/employee/all")
+    public List<Notification> getNotificationsByEmployeeUsername(Principal principal) {
+        String username = principal.getName();
+        return notificationService.getNotificationsByEmployeeUsername(username)
+        		.stream()
+				.filter(t->t.isArchived() == false)
+				.collect(Collectors.toList());
+    }
+	
+	@GetMapping("/api/cap/notification/archive/{nid}")
+	public void updateNotificationForArchival(@PathVariable("nid") int nid) {
+		notificationService.updateNotificationForArchival(nid);
 	}
 }
