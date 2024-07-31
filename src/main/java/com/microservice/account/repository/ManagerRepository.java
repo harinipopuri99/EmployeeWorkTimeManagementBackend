@@ -27,5 +27,7 @@ public interface ManagerRepository extends JpaRepository<Manager, Integer>{
 			+ " JOIN m.userInfo u "
 			+ " where u.username=?1")
 	List<Employee> getEmployeeByManagerJpql(String username);
+
+
 	
 }

@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import com.microservice.account.enums.JobTitle;
 import com.microservice.account.enums.Priority;
 import com.microservice.account.model.Employee;
+import com.microservice.account.model.Manager;
 import com.microservice.account.model.Project;
 import com.microservice.account.model.Task;
 import com.microservice.account.repository.EmployeeRepository;
+import com.microservice.account.repository.ManagerRepository;
 import com.microservice.account.repository.ProjectRepository;
 import com.microservice.account.repository.TaskRepository;
 
@@ -25,6 +27,9 @@ public class TaskService {
 	private TaskRepository taskRepository;
 	@Autowired
 	private ProjectRepository projectRepository;
+	
+	@Autowired
+	private ManagerRepository managerRepository;
 
 	public Task assignTask(int eid, int tid) {
 		Employee employee = employeeRepository.findById(eid).get();
