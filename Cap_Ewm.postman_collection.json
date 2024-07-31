@@ -1,0 +1,1054 @@
+{
+	"info": {
+		"_postman_id": "78bdc820-a315-4d5a-ac89-2c0dcf18af17",
+		"name": "Cap_Ewm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37028441"
+	},
+	"item": [
+		{
+			"name": "Add Project",
+			"item": [
+				{
+					"name": "POST: Country",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Albus123$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "albus@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"countryName\" : \"India\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/cap/country/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"cap",
+								"country",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST: MangerCreatesProject Copy",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Severus123$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "severus@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"RestaurantApp\",\r\n    \"description\" : \"Backend for RestaurantApp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/cap/project/add/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"cap",
+								"project",
+								"add",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST: Region",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"regionName\" : \"NewYork\",\r\n    \"pincode\" : \"70001\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/cap/region/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"cap",
+								"region",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET : All regions",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Severus123$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "severus@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/cap/region/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"cap",
+								"region",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: All countries",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Severus123$",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "severus@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/cap/country/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"cap",
+								"country",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "localhost:8081/api/cap/hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Employee",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Albus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "albus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Ginny Weasley\",\r\n    \"city\" : \"Surrey\",\r\n    \"salary\" : 85000,\r\n    \"jobTitle\" : \"DEVELOPER\",\r\n    \"dailyLog\" : \"Did testing on a project\",\r\n    \"messages\" : \"\",\r\n    \"notifications\" : \"\",\r\n    \"userInfo\" : {\r\n        \"username\" : \"ginny@gmail.com\",\r\n        \"password\" : \"Ginny123$\"\r\n    }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/cap/employee/add/46",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"employee",
+						"add",
+						"46"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: HR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Albus Dumbledore\",\r\n    \"userInfo\" : {\r\n        \"username\" : \"albus@gmail.com\",\r\n        \"password\" : \"Albus123$\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/cap/hr/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"hr",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Albus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "albus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Manager",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Albus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "albus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Severus Snape\",\r\n    \"email\" : \"severus@gmail.com\",\r\n    \"contact\" : \"738371289\",\r\n    \"userInfo\" : {\r\n        \"username\" : \"severus@gmail.com\",\r\n        \"password\" : \"Severus123$\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/cap/manager/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"manager",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: Search Employee, Manager based on String",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/search/employee/manager/on",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"search",
+						"employee",
+						"manager",
+						"on"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: Employe->Manager",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/manager/employee",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"manager",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/api/cap/manager/employee",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/manager/employee",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"manager",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: Employee-Projects",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Ronald123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ronald@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/employee/projects",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"employee",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/api/cap/region/1",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/region/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"region",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Create Task->Project",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Blocker3\",\r\n    \"taskDetails\" : \"Fix bug3 for front-end development project\",\r\n    \"startDate\" : \"2024-07-26\",\r\n    \"endDate\" : \"2024-07-28\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/cap/task/project/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"task",
+						"project",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: project/all",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/project/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"project",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: ALLTasksInsideProject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/task/project/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"task",
+						"project",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: ALL Tasks",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/tasks/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"tasks",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Task->Employee",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/task/8",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"task",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Notification",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Update\",\r\n    \"message\" : \"You are assigned a new task\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/cap/notification/8",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"notification",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/api/cap/manager/employee",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/manager/employee",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"manager",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: priority/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/priority/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"priority",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Assign task to employee",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Severus123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "severus@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/cap/task/employee/8/31/MEDIUM",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"task",
+						"employee",
+						"8",
+						"31",
+						"MEDIUM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: /notification/employeeByUsername",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Ronald123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ronald@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/notification/employee/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"notification",
+						"employee",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: project/tasks/all",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Ronald123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ronald@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/project/tasks/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"project",
+						"tasks",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: Archive notification by nid",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Ronald123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ronald@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081",
+					"host": [
+						"localhost"
+					],
+					"port": "8081"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: status/all",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Ronald123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ronald@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/status/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"status",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: StatusByEmployee",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Harry123$",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "harry@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/cap/status/16/IN_PROGRESS",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"cap",
+						"status",
+						"16",
+						"IN_PROGRESS"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
